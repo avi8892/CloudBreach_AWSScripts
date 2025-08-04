@@ -9,7 +9,7 @@ cat << "EOF"
  \____/_|\___/ \__,_|\__,_\____/|_|  \___|\__,_|\___|_| |_(_)_|\___/ 
 
 
-AWS Script that retrieves and base64 decodes userData from EC2 instances across all regions.
+AWS Script that retrieves and base64 decodes userData from EC2 instances across all regions with optional profile.
 
 EOF
 
