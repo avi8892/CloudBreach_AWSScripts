@@ -54,7 +54,7 @@ regions=(
 for region in "${regions[@]}"; do
   echo ""
   echo "=============================="
-  echo "🔍 Region: $region"
+  echo "Region: $region"
   echo "=============================="
 
   instance_ids=$(aws ec2 describe-instances --region "$region" $PROFILE_OPT \
@@ -67,7 +67,7 @@ for region in "${regions[@]}"; do
 
   for instance_id in $instance_ids; do
     echo ""
-    echo "➡️  Getting userData for instance: $instance_id"
+    echo "Getting userData for instance: $instance_id"
 
     user_data=$(aws ec2 describe-instance-attribute --region "$region" $PROFILE_OPT \
       --instance-id "$instance_id" --attribute userData --output text 2>/dev/null)
@@ -78,12 +78,12 @@ for region in "${regions[@]}"; do
       echo "📦 Base64-encoded userData:"
       echo "$encoded"
       echo ""
-      echo "🔓 Decoded userData:"
+      echo "Decoded userData:"
       echo "------------------------------"
       echo "$encoded" | base64 -d 2>/dev/null || echo "[!] Failed to decode userData"
       echo "------------------------------"
     else
-      echo "⚠️  No userData found for instance $instance_id"
+      echo "No userData found for instance $instance_id"
     fi
   done
 done
