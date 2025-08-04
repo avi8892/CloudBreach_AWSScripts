@@ -75,7 +75,7 @@ for region in "${regions[@]}"; do
     if [ -n "$user_data" ]; then
       encoded=$(echo "$user_data" | sed 's/^USERDATA\s*//' | sed '1d' | sed 's/^[[:space:]]*//')
 
-      echo "📦 Base64-encoded userData:"
+      echo "Base64-encoded userData:"
       echo "$encoded"
       echo ""
       echo "Decoded userData:"
